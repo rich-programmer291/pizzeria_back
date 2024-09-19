@@ -4,7 +4,7 @@ import {v4 as uuidv4}from 'uuid';
 import orderModel from '../model/orderModel.js';
 
 const router = Express.Router();
-const stripe = new Stripe('sk_test_51PkS9LRwRCQ405Pc5fzNEUKSRWlbqHsh8XVLIWxAJwIXLHbumziw6BikT8XQEycoXwky6kxIaI7CemPrIseNBVFU00GtNrJFh1')
+const stripe = new Stripe(process.env.STRIPE_KEY);
 
 router.post('/placeorder', async (req,res)=>{
     const {token,total,currentUser,cartItems} = req.body;
